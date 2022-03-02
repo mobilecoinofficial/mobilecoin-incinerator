@@ -1,18 +1,22 @@
 # MobileCoin Incinerator
 
-This script generates a public address without corresponding private keys. It does this by
-hashing a given string into a Ristretto curve point, which it then uses as the public key.
-Because the address was not generated via the normal key derivation path, there is no way
-to reverse the discrete logarithm to recover the private key. This means that all funds
-sent to this address can never be spent.
+Burn MobileCoin by sending it to an unspendable address.
 
-For the string "burn address", the public address is:
+## Summary
+
+This script generates a public address without corresponding private keys. It does this by
+hashing a known string into a Ristretto curve point, which it then uses as the public key.
+Because the address was not generated via the normal key derivation path, which is a
+one-way function, it is not possible to reverse the derivation to recover the private key.
+This means that all funds sent to this address can never be spent.
+
+For the known string "burn address", the public address is:
 o21C75ybsJVwBfH79SEYxZxFhtUF2VmyjbX22PsHYmJvZ1hPNGoSUZehPPMFWQDwcCzGe3itrjecPhQrKExFjjDwMUNjao2TYRJPDqupyn
+
 
 ## How to burn funds
 
 First install the [MobileCoin CLI](https://github.com/mobilecoinofficial/full-service/tree/main/cli).
-
 ```sh
 $ mobcli send --build-only a7ddc0 0.001 o21C75ybsJVwBfH79SEYxZxFhtUF2VmyjbX22PsHYmJvZ1hPNGoSUZehPPMFWQDwcCzGe3itrjecPhQrKExFjjDwMUNjao2TYRJPDqupyn
 Building transaction for 0.001 MOB from account a7ddc0
